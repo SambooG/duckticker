@@ -48,7 +48,7 @@ const userSeed = [
 ];
 
 db.User
-  .remove({})
+  .deleteMany({})
   .then(() => db.ducktickerUsers.collection.insertMany(userSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
