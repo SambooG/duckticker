@@ -1,56 +1,36 @@
-import React from "react";
 import axios from "axios"
 
-
-
-
-class StockForm extends React.Component {
-
-    constructor(props) {
-      super(props);
-    
-      this.state = {
-        symbol: ''
-      }
-    }
+const stockUrl = new URL(
+        "https://api.worldtradingdata.com/api/v1/history");
   
-    componentDidMount() {
-      this.getStockData();
-    }
   
-    handleOnChange = (e) => {
-      this.setState({ [e.target.name]: e.target.value });
-    }
-  
-    getStockData = () => {
-      const url = new URL(
-        "https://api.worldtradingdata.com/api/v1/history"
-      );
+  axios
+  .get("https://api.worldtradingdata.com/api/v1/history?symbol={}&api_token=jabpbTqjajp7ccWUMwei3kil7q7JZqoMPJYmzeBWAJTDGwAMsPAQ9NQWDeEt")
+  .then(response => {
+    const data= response.data})
       
-      let params = {
-        "symbol": this.state.symbol,
+  
+      
+      let stockParams = {
+        "symbol": data.symbol,
         "api_token": "[jabpbTqjajp7ccWUMwei3kil7q7JZqoMPJYmzeBWAJTDGwAMsPAQ9NQWDeEt]",
-        "date_from": this.state.from_date,
-        "date_to": this.state.to_date
+        "date_from": this.from_date,
+        "date_to": this.to_date
       };
       Object.keys(params)
         .forEach(key => url.searchParams.append(key, params[key]));
       
-      fetch(url, {
-        method: "GET",
-      })
-        .then(response => response.json())
-        .then(json => console.log(json));
-    }
   
-  render(){
-    return (
-      <div>
-        <input name="symbol" onChange={handleOnChange} value={this.state.symbol} />
-        <button onClick={getStockData} />
-        <button onClick={saveStockSettings} />
-      </div>
-      );
-    }
-}
-  export default StockForm;
+  axios.post(stockUrl, stockParams)
+  // Handle a successful response from the server
+  .then(response => {
+          // Getting a data object from response that contains the necessary data from the server
+          const data = response.data;
+          console.log('data', data);
+          // Save the unique id that the server gives to our object
+          stockInfo = data._id;
+  })
+  // Catch and print errors if any
+  .catch(error => console.error('On create student error', error));
+      
+  
