@@ -42,11 +42,6 @@ class StockForm extends React.Component {
         .then(response => response.json())
         .then(json => console.log(json));
     }
-    delete(e) {
-        e.preventDefault();
-        axios.delete("https://api.worldtradingdata.com/api/v1//{this.state.id")
-        .then(res => console.log(res.data));
-    }
   
   render(){
     return (
