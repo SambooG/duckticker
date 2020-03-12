@@ -1,36 +1,38 @@
-import axios from "axios"
+const axios = require ("axios");
 
-const stockUrl = new URL(
-        "https://api.worldtradingdata.com/api/v1/history");
+// add & or needed symbol plus date requirement
+// what to put in place of SQ symbol to take client request?
+const stockUrl = "https://api.worldtradingdata.com/api/v1/history?symbol=SQ&api_token=jabpbTqjajp7ccWUMwei3kil7q7JZqoMPJYmzeBWAJTDGwAMsPAQ9NQWDeEt";
   
-  
+let tenDaysAgoStockInfo; 
+let todayStockinfo;
+
+// string concat onto stockUrl+
+// make a second get request. diff variable than line 18
   axios
-  .get("https://api.worldtradingdata.com/api/v1/history?symbol={}&api_token=jabpbTqjajp7ccWUMwei3kil7q7JZqoMPJYmzeBWAJTDGwAMsPAQ9NQWDeEt")
-  .then(response => {
-    const data= response.data})
-      
+  .get(stockUrl)
+    .then(response => {
+      // Getting a data object from response that contains the necessary data from the server
+      const data = response.data;
+      console.log('data', data);
+      // Save the unique id that the server gives to our object
+      tenDaysAgoStockInfo = data;
+})
+// Catch and print errors if any
+.catch(error => console.error('On create ', error));
+      // Object.keys(data)
+        // .forEach(key => url.searchParams.append(key, params[key]));
   
-      
-      let stockParams = {
-        "symbol": data.symbol,
-        "api_token": "[jabpbTqjajp7ccWUMwei3kil7q7JZqoMPJYmzeBWAJTDGwAMsPAQ9NQWDeEt]",
-        "date_from": this.from_date,
-        "date_to": this.to_date
-      };
-      Object.keys(params)
-        .forEach(key => url.searchParams.append(key, params[key]));
-      
-  
-  axios.post(stockUrl, stockParams)
+  // axios.post(stockUrl, stockInfo)
   // Handle a successful response from the server
-  .then(response => {
+  // .then(response => {
           // Getting a data object from response that contains the necessary data from the server
-          const data = response.data;
-          console.log('data', data);
-          // Save the unique id that the server gives to our object
-          stockInfo = data._id;
-  })
-  // Catch and print errors if any
-  .catch(error => console.error('On create student error', error));
+  //         const data = response.data;
+  //         console.log('data', data);
+  //         // Save the unique id that the server gives to our object
+  //         stockInfo = data._id;
+  // })
+  // // Catch and print errors if any
+  // .catch(error => console.error('On create ', error));
       
   
