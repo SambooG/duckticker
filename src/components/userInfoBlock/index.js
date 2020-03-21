@@ -7,7 +7,7 @@ function UserInfoBlock(props) {
     return (
       <div className="userInfoBlock">
         <p>Hello World</p>
-        <p>Hello, {props.userName}</p>
+        <p>Hello, {props.username}</p>
       </div>
     );
 }

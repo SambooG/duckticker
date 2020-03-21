@@ -26,10 +26,11 @@ function SignInForm (props){
     return (
       <div>
         <h1>Sign Up Form!</h1>
-        <input onChange={props.handlOnChange} name="userName" type="text" value={props.userName} />
-        {/* <input onChange={props} name="password" type="password" value={props.password} /> */}
-        <button onClick={console.log(`Username: ${props.userName}`)}>Login</button>
-        {/* <button onClick={this.handleLogin}>Login</button> */}
+        <input onChange={props.handleOnChange} name="userName" type="text" value={props.username} />
+        <input name="password" type="password"  />
+              {/* <input onChange={props} name="password" type="password" value={props.password} /> */}
+        <button onClick={props.login}>Login</button>
+              {/* <button onClick={this.handleLogin}>Login</button> */}
       </div>
     )
 }
