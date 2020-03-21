@@ -33,5 +33,16 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  findUserForLogin: function(req,res){
+    db.User
+      .findOne({userName: req.params.userName})
+      .then(dbModel => res.send(dbModel))
+      .catch(err => res.status(422).json(err));
   }
+
 };
+
+
+
+

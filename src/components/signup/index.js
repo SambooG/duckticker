@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 // These can and should be separate components. One sign in and one log in
-export default class SignUpAndLoginClassVersion extends Component {
+class SignUpForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
+      userName: '',
       password: '',
     }
   } 
@@ -19,32 +19,22 @@ export default class SignUpAndLoginClassVersion extends Component {
   }
 
   handleSubmit = () => { // Actually submits the form to the backend
-    axios.post('/signup', { email: this.state.email, password: this.state.password })
+    axios.post('/signup', { userName: this.state.userName, password: this.state.password })
       .then(response => console.log("RESPONSE: ", response))
       .catch(error => console.log("ERROR: ", error));
   }
 
-  handleLogin = () => {
-    axios.post('/login', { email: this.state.email, password: this.state.password })
-    .then(response => {
-      if (response.data) { // response.data holds our id or user key, etc..
-        localStorage.setItem('key', response.data);
-      }
-      console.log("RESPONSE: ", response.data)
-    })
-    .catch(error => console.log("ERROR: ", error));
-  }
 
   render () {
     return (
       <div>
         <h1>Sign Up Form!</h1>
-        <input onChange={this.handleOnChange} name="email" type="email" value={this.state.email} />
+        <input onChange={this.handleOnChange} name="userName" type="userName" value={this.state.userName} />
         <input onChange={this.handleOnChange} name="password" type="password" value={this.state.password} />
         <button onClick={this.handleSubmit}>Sign Up!</button>
-        <button onClick={this.handleLogin}>Login</button>
       </div>
     )
   }
 }
 
+export default SignUpForm;
