@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import Chart from "chart.js";
+import duck from './assets/duck.jpg';
 
 
+const chartPoint = new Image(45,45)
+  chartPoint.src = duck
 
 // let apiChart;
 
@@ -52,7 +55,10 @@ export default class LineGraph extends Component {
                         'rgba(153, 102, 255, 1)',
                         'rgba(255, 159, 64, 1)'
                     ],
-                    borderWidth: 1
+                    borderWidth: 1,
+                    pointStyle: chartPoint,
+                    height: 10,
+                    width:5
                 }]
             },
             options: {
