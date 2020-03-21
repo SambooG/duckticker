@@ -1,12 +1,37 @@
-import React from 'react';
+import React from "react";
+import Nav from "./components/Nav";
+import WelcomeCard from "./components/WelcomeCard";
+import PortfolioCard from "./components/PortfolioCard";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import SignInCard from "./components/SignInCard";
+import SignUpCard from "./components/SignUpCard";
 import './App.css';
 import GraphDashboard from './graph-dashboard';
+{/*Still need to implement a back button, and a logout button into the nav menu and add it to the routing */ }
+
+{/*Login page is not currently accessible through navigation. 
+Currently it will be loaded based on (lack of)authentication and first time visiting site or manually entering an empty url. 
+Log out button could navigate to this page*/}
 
 function App() {  
   return (
-    <div className="App">
-      <GraphDashboard />
-    </div>
+    <Router>
+      <div className="container">
+        <Nav />
+        <Switch>
+          <Route path="/home" component={WelcomeCard} />
+          <Route path="/portfolio" component={PortfolioCard} />
+          <Route path="/" exact component={SignInCard} />
+          <Route path="/signup" component={SignUpCard} />
+          <Route path="/graphdashboard" exact component={GraphDashboard} />
+        </Switch>
+
+      </div>
+    </Router>
+<<<<<<< HEAD
+=======
+  
+>>>>>>> ded679c75b8dc52cf6499221bc9d461b4d81f767
   );
 }
 
