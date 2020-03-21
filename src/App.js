@@ -2,11 +2,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
-import UserInfoBlock from "./components/userInfoBlock";
 import SignUpForm from "./components/signup";
 import SignInForm from "./components/signin";
-// import ButtonBar from "./components/buttonBar";
-import Duck from "./components/duck";
 
 
 // REFERENCE: 
@@ -38,9 +35,6 @@ class App extends Component {
     this.setState({ [name]: value }) // By using the name property (as long as it matches the same name in state) we only need one function for multiple inputs
   }
 
-// update username from login
-//call the api (findUserForLogin
-//update state
 logIn = () => {
   console.log(`${this.state.userName} logged in!`)
 }
@@ -54,38 +48,14 @@ logIn = () => {
     return (
       <Router>
         <div className="App">
-        <UserInfoBlock 
-          username = {this.state.userName}
-        />
-        <Duck />
+        {/* <UserInfoBlock username = {this.state.userName}/> */}
           <Switch>
-            
             <Route 
-              path = {"/signup"}
+              exact path = {"/signup"}
               render={(props) => <SignInForm {...props} username = {this.state.userName} handleOnChange = {this.handleOnChange} login={this.logIn}/> }
             />
-
-
-            
-
-
-            {/* <Route exact path="/signup" component={SignUpForm} /> */}
-            {/* <Route 
-              exact path="/signin" 
-              component={SignInForm} 
-              render={(props) => <SignInForm {...props}/>}
-              /> */}
+            <Route exact path = {"/signin"} render={SignUpForm} />
           </Switch>
-
-
-
-
-
-          {/* 
-          <Route
-            path='/dashboard'
-            render={(props) => <Dashboard {...props} isAuthed={true} />}
-          /> */}
 
           {/* <div>
             {
@@ -98,7 +68,6 @@ logIn = () => {
             }
             {data} 
           </div>*/}
-
 
         </div>
       </Router>
