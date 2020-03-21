@@ -1,11 +1,12 @@
 // import React, { useState } from 'react';
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import stockApi from './api/stockapi';
+import stockApi from './api/stockapi'; // May not need this here because the graph-dashboard is connected to stockAPI
 import './App.css';
 import UserInfoBlock from "./components/userInfoBlock";
 import SignUpForm from "./components/signup";
 import SignInForm from "./components/signin";
+import GraphDashboard from './graph-dashboard';
 // import ButtonBar from "./components/buttonBar";
 import Duck from "./components/duck";
 
@@ -16,8 +17,8 @@ import Duck from "./components/duck";
 
 // ----------------------------------------------------------------------
 // Seed Data:
-var fakeName = "Fakie";
-var fakePortfolio = ["AAP", "AAON", "SNAP", "SQ"];
+// var fakeName = "Fakie";
+// var fakePortfolio = ["AAP", "AAON", "SNAP", "SQ"];
 // ----------------------------------------------------------------------
 
 
@@ -27,7 +28,7 @@ class App extends Component {
     this.state = {
       userID: "",
       userName: "",
-      portfolio: []
+      portfolio: ["AAP", "AAON", "SNAP", "SQ"]
     }
   } 
 
@@ -78,20 +79,15 @@ logIn = () => {
               component={SignInForm} 
               render={(props) => <SignInForm {...props}/>}
               />
-            
-            {/* <Route exact path="/buttonbar" component={ButtonBar} /> */}
+            <Route exact path="/GraphDashboard" component={GraphDashboard} />
           </Switch>
           
-{/* 
-<Route
-  path='/dashboard'
-  render={(props) => <Dashboard {...props} isAuthed={true} />}
-/> */}
+          {/* 
+          <Route
+            path='/dashboard'
+            render={(props) => <Dashboard {...props} isAuthed={true} />}
+          /> */}
 
-
-
-
-          
           {/* <div>
             {
               this.state.portfolio.map(symbol => (
