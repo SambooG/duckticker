@@ -1,13 +1,13 @@
 const axios = require ("axios");
 
 
-function stockApi(symbol = "A", callback) { 
+function stockApi(symbol, callback) { 
   const apiToken = 'jabpbTqjajp7ccWUMwei3kil7q7JZqoMPJYmzeBWAJTDGwAMsPAQ9NQWDeEt';
 
   const todaysDate = new Date().toISOString().split("T")[0];
 
   let tenDaysAgo = new Date();
-  tenDaysAgo.setDate(tenDaysAgo.getDate() - 10);
+  tenDaysAgo.setDate(tenDaysAgo.getDate() - 20);
   tenDaysAgo = tenDaysAgo.toISOString().split("T")[0];
   
   // string concat onto stockUrl+
