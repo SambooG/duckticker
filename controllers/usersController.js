@@ -1,6 +1,6 @@
 const db = require("../models");
 
-// Defining methods for the usersController
+// Defining methods for the usersController.
 module.exports = {
   findAll: function(req, res) {
     db.User
@@ -36,7 +36,7 @@ module.exports = {
   },
   findUserForLogin: function(req,res){
     db.User
-      .findOne({userName: req.params.userName})
+      .findOne({"userName": req.params.userName})
       .then(dbModel => res.send(dbModel))
       .catch(err => res.status(422).json(err));
   }
