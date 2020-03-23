@@ -21,6 +21,7 @@ class App extends Component {
       userName: "Not Logged In",
       portfolio: ["Not Loggged In"]
     }
+    this.processUserInfo = this.processUserInfo.bind(this)
   } 
 
 
@@ -28,15 +29,22 @@ class App extends Component {
 // ==========================================================================================  
 
 
-  logIn = () => {
-    console.log(`${this.state.userName} logged in!`)
-    this.setState({portfolio: ["AAP", "AAON", "SNAP", "SQ"]})
+  logIn = (username) => {
+    this.setState({userName: username}) 
+    getUserInfo(username, this.processUserInfo)
   }
 
-  getUsersPortfolio = () => {
-    const username ="SamanthaSeed"
-    getUserInfo(username)
+  processUserInfo (error, data){
+    if (!error){
+      console.log(data)
+      this.setPortfolio(data)
+    }
   }
+
+  setPortfolio = (data) => {
+    this.setState({portfolio: data.portfolio})
+  }
+
 
 
 // RENDER
@@ -51,9 +59,9 @@ class App extends Component {
             <Route 
               exact path = {"/signin"}
               render={(props) => <SignInCard {...props} 
-                username =       {this.state.userName} 
+                username = {this.state.userName} 
                 // handleOnChange = {this.handleOnChange} 
-                login =          {this.logIn}
+                login = {this.logIn}
                 /> }
             />
             <Route exact path = {"/signup"} render={SignUpForm} />

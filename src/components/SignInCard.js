@@ -18,24 +18,24 @@ class SignInCard extends Component {
     this.setState({ [name]: value }) // By using the name property (as long as it matches the same name in state) we only need one function for multiple inputs
   }
 
-  handleOnSubmit = (event) => {
-    event.preventDefault();
-    const data = this.state;
-    console.log(data);
+  handleOnSubmit = () => {
+    console.log(`username is ${this.state.usernameValue}`)
+    this.props.login(this.state.usernameValue)
   }
 
 render() {
   return (
     <Form 
       className="login-form"
-      onSubmit={this.handleOnSubmit}  
+      
+      
       >
       <h1>Duckticker</h1>
       <h2>Welcome to our page!</h2>
       <FormGroup>
         <Label>Username</Label>
          <Input 
-            name="userName" 
+            name="usernameValue" 
             type="text" 
             placeholder="Enter your Username" 
             onChange={this.handleInputChange} 
@@ -53,6 +53,7 @@ render() {
           />
       </FormGroup>
         <Button 
+          onClick={this.handleOnSubmit} 
           className="btn-lg btn-dark btn-block"
           >Sign In {this.state.usernameValue}
         </Button>

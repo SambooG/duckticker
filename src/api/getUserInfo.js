@@ -1,27 +1,23 @@
-
 const axios = require ("axios");
 
-
-function getUserInfo(username) { 
+function getUserInfo(username, callback) { 
   
-  // let userID = "5e69a9ae67ddcb6271f3f649"
   let userName = username
   
-  const URL = `http://localhost:3002/api/users/${userName}`;
+  const URL = `http://localhost:3002/api/users/login/${userName}`;
   // TODO: How do I make this the web URL or the Local Host?
-  
-  console.log("anything")
 
   axios
   .get(URL)
-  .then(response => {
-    const data = response.data;
-    console.log('data', data);
-    // callback(data);
+    .then(response => {
+    console.log(response)
+    callback(null, response.data) 
   })
   // Catch and print errors if any
-  .catch(error => console.error('On Data Retrieval ', error));
+  .catch(error => {
+    console.log(error)
+    callback(error)
+  })
 }
-
-      
-  export default getUserInfo;
+   
+export default getUserInfo;

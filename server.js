@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require('body-parser');
+var cors = require('cors')
 
 const mongoose = require("mongoose");
 const routes = require("./routes");
@@ -13,6 +14,8 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
+// Resolves CORS issues
+app.use(cors())
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
