@@ -26,11 +26,7 @@ class SignInCard extends Component {
 
 render() {
   return (
-    <Form 
-      className="login-form"
-      
-      
-      >
+    <Form className="login-form">
       <h1>Duckticker</h1>
       <h2>Welcome to our page!</h2>
       <FormGroup>

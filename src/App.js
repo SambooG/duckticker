@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, withRouter } from "react-router-dom";
 import './App.css';
 
 import SignUpForm from "./components/signup";
@@ -45,6 +45,14 @@ class App extends Component {
     this.setState({portfolio: data.portfolio})
   }
 
+  handleLogOut = () => {
+    console.log("logout")
+    this.setState({
+      userID: "",
+      userName: "Not Logged In",
+      portfolio: ["Not Loggged In"]
+    })
+  }
 
 
 // RENDER
@@ -54,7 +62,11 @@ class App extends Component {
       <Router>
         <div className="App">
           <Nav />
-          <UserInfoBlock username = {this.state.userName} userPortfolio = {this.state.portfolio}/>
+          <UserInfoBlock 
+            username = {this.state.userName} 
+            userPortfolio = {this.state.portfolio} 
+            logout = {this.handleLogOut}
+            />
           <Switch>
             <Route 
               exact path = {"/signin"}

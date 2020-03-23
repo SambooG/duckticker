@@ -10,9 +10,13 @@ function UserInfoBlock(props) {
   //   portfolioPretty.push() 
   // }
 
+
+
     return (
       <div className="userInfoBlock">
-        <p>User: {props.username}  |   Portfolio: {props.userPortfolio}</p>
+        
+        <p>User: {props.username}  |   Portfolio: {props.userPortfolio}  |  <button onClick={props.logout}>Sign Out</button></p>
+        
       </div>
     );
 }
