@@ -21,6 +21,7 @@ class SignInCard extends Component {
   handleOnSubmit = () => {
     console.log(`username is ${this.state.usernameValue}`)
     this.props.login(this.state.usernameValue)
+    this.props.history.push("/graphdashboard")
   }
 
 render() {
@@ -55,6 +56,7 @@ render() {
         <Button 
           onClick={this.handleOnSubmit} 
           className="btn-lg btn-dark btn-block"
+          
           >Sign In {this.state.usernameValue}
         </Button>
       <Link to="/signup">Sign Up</Link>
