@@ -1,24 +1,33 @@
 import React from 'react';
-import LineChart from './components/chart/apiChart';
-import stockApi from './api/stockapi';
+import LineChart from './chart/apiChart';
+import stockApi from '../api/stockapi';
 
 // Test data for symbols for stock api
-const testData = {
-  portfolio: [
-    "AMZN",
-    "AA",
-    "A",
-    "GOOGL",
-    "F"
-  ]
-};
+const testData = []
+// const testData = {
+//   portfolio: [
+//     "AMZN",
+//     "AA",
+//     "A",
+//     "GOOGL",
+//     "F"
+//   ]
+// };
+
+
 
 class GraphDashboard extends React.Component {
     state = {
+      portfolio:[ "AMZN", "AA", "A", "GOOGL", "F" ], // We want this to populate from App.js
       labels: [],
       name: "",
       lineData: [],
       data: null
+    }
+
+    getPortfolio = () => { // !!!!!!!!!! this doesn't actually work
+    // Goal: is to update the portfolio in state with the props from app.js
+      this.state.userPortfolio = this.props.userPortfolio;
     }
 
     getStockData = (symbol) => {
@@ -57,7 +66,7 @@ class GraphDashboard extends React.Component {
           <div>
             <div>
               {
-                testData.portfolio.map(stockSymbol => (
+                this.state.portfolio.map(stockSymbol => (
                   <button onClick = {() => this.getStockData(stockSymbol)} key={stockSymbol}>
                     {stockSymbol}
                   </button>
