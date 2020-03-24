@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
-
 import SignUpForm from "./components/signup";
 import SignInForm from "./components/signin";
 import Nav from "./components/Nav";
@@ -11,6 +10,11 @@ import SignInCard from "./components/SignInCard";
 import SignUpCard from "./components/SignUpCard";
 import './App.css';
 import GraphDashboard from './components/graph-dashboard';
+
+{/*Login page is not currently accessible through navigation. 
+Currently it will be loaded based on (lack of)authentication and first time visiting site or manually entering an empty url. 
+Log out button could navigate to this page*/}
+
 
 class App extends Component {
   constructor(props) {
@@ -43,22 +47,19 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Nav />
         {/* <UserInfoBlock username = {this.state.userName}/> */}
           <Switch>
-            <Route 
-              exact path = {"/signup"}
-              render={(props) => <SignInForm {...props} username = {this.state.userName} handleOnChange = {this.handleOnChange} login={this.logIn}/> }
-            />
-            <Route exact path = {"/signin"} render={SignUpForm} />
-            <Route path="/home" component={WelcomeCard} />
-            <Route path="/portfolio" component={PortfolioCard} />
-            <Route path="/" exact component={SignInCard} />
-            <Route path="/signup" component={SignUpCard} />
+          <Route path="/" exact component={SignInCard} />
+          <Route path="/signup" component={SignUpCard} />
+          <Fragment>
+          <Nav />
+          <Route path="/home" component={WelcomeCard} />
+          <Route path="/portfolio" component={PortfolioCard} />        
             <Route 
               exact path = {"/graphdashboard"}
               render={(props) => <GraphDashboard {...props} userPortfolio = {this.state.portfolio}/> }
             /> {/* This structure comes from: https://tylermcginnis.com/react-router-pass-props-to-components/    */}
+             </Fragment>
           </Switch>
 
         </div>
@@ -68,8 +69,6 @@ class App extends Component {
 }
 
 export default App;
-
-
 
 
 
