@@ -28,10 +28,7 @@ function App() {
 
       </div>
     </Router>
-<<<<<<< HEAD
-=======
   
->>>>>>> ded679c75b8dc52cf6499221bc9d461b4d81f767
   );
 }
 

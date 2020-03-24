@@ -2,35 +2,24 @@
   "name": "duckticker",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:4000",
+  "proxy": "http://localhost:3002",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
-    "bootstrap": "^4.4.1",
-<<<<<<< HEAD
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.0",
-    "reactstrap": "^8.4.1",
-=======
-    "reactstrap": "^8.4.1"
->>>>>>> ded679c75b8dc52cf6499221bc9d461b4d81f767
     "axios": "^0.19.2",
     "bcrypt": "^4.0.1",
     "body-parser": "^1.19.0",
+    "bootstrap": "^4.4.1",
     "chart.js": "^2.9.3",
     "express": "^4.17.1",
     "mongod": "^2.0.0",
-<<<<<<< HEAD
-    "mongoose": "^5.9.4"
-=======
     "mongoose": "^5.9.4",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "react-scripts": "3.4.0"
->>>>>>> ded679c75b8dc52cf6499221bc9d461b4d81f767
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.0",
+    "reactstrap": "^8.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
