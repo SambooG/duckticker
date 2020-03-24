@@ -1,31 +1,7 @@
 import React from 'react';
-<<<<<<< HEAD:src/graph-dashboard.js
 import axios from 'axios';
-import LineChart from './components/chart/apiChart';
-import stockApi from './api/stockapi';
-
-// Test data for symbols for stock api
-=======
-import LineChart from './chart/apiChart';
+import LineChart from '../components/chart/apiChart';
 import stockApi from '../api/stockapi';
-
-// Test data for symbols for stock api
-const testData = []
->>>>>>> 4c3deb540e99bf96dbec1d788fc34c39440ddf53:src/components/graph-dashboard.js
-// const testData = {
-//   portfolio: [
-//     "AMZN",
-//     "AA",
-//     "A",
-//     "GOOGL",
-//     "F"
-//   ]
-// };
-<<<<<<< HEAD:src/graph-dashboard.js
-=======
-
-
->>>>>>> 4c3deb540e99bf96dbec1d788fc34c39440ddf53:src/components/graph-dashboard.js
 
 // WHAT'S LEFT
 
@@ -60,22 +36,23 @@ class GraphDashboard extends React.Component {
       labels: [],
       name: "",
       lineData: [],
-      userPortfolio: [], // OPTION 3: this.props.user.portfolio || []
+      userPortfolio: this.props.portfolio, // OPTION 3: this.props.user.portfolio || []
       data: null
     }
 
-<<<<<<< HEAD:src/graph-dashboard.js
     componentDidMount() {
-      // This is just to show you how it works
-      axios.get(`/api/users/`) // findAll in the userController
-      .then(response => {
-        // 0 is the index for the array
-        console.log(response.data[0]);
-        this.setState({ 
-          userPortfolio: response.data[0].portfolio,
-        })
-      })
-      .catch(err => console.log("ERROR: ", err))
+      
+
+      // OPTION ONE
+      // axios.get(`/api/users/`) // findAll in the userController
+      // .then(response => {
+      //   // 0 is the index for the array
+      //   console.log(response.data[0]);
+      //   this.setState({ 
+      //     userPortfolio: response.data[0].portfolio,
+      //   })
+      // })
+      // .catch(err => console.log("ERROR: ", err))
 
 
       // OPTION TWO BELOW
@@ -90,11 +67,6 @@ class GraphDashboard extends React.Component {
       // else {
       //   this.setState({ loading: false });
       // }
-=======
-    getPortfolio = () => { // !!!!!!!!!! this doesn't actually work
-    // Goal: is to update the portfolio in state with the props from app.js
-      this.state.userPortfolio = this.props.userPortfolio;
->>>>>>> 4c3deb540e99bf96dbec1d788fc34c39440ddf53:src/components/graph-dashboard.js
     }
 
     getStockData = (symbol) => {
@@ -133,11 +105,7 @@ class GraphDashboard extends React.Component {
           <div>
             <div>
               {
-<<<<<<< HEAD:src/graph-dashboard.js
                 this.state.userPortfolio.map(stockSymbol => (
-=======
-                this.state.portfolio.map(stockSymbol => (
->>>>>>> 4c3deb540e99bf96dbec1d788fc34c39440ddf53:src/components/graph-dashboard.js
                   <button onClick = {() => this.getStockData(stockSymbol)} key={stockSymbol}>
                     {stockSymbol}
                   </button>
