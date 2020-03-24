@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Fragment} from "react";
 import Nav from "./components/Nav";
 import WelcomeCard from "./components/WelcomeCard";
 import PortfolioCard from "./components/PortfolioCard";
@@ -17,21 +17,19 @@ function App() {
   return (
     <Router>
       <div className="container">
-        <Nav />
         <Switch>
-          <Route path="/home" component={WelcomeCard} />
-          <Route path="/portfolio" component={PortfolioCard} />
           <Route path="/" exact component={SignInCard} />
           <Route path="/signup" component={SignUpCard} />
+          <Fragment>
+          <Nav />
+          <Route path="/home" component={WelcomeCard} />
+          <Route path="/portfolio" component={PortfolioCard} />
           <Route path="/graphdashboard" exact component={GraphDashboard} />
+          </Fragment>
         </Switch>
 
       </div>
     </Router>
-<<<<<<< HEAD
-=======
-  
->>>>>>> ded679c75b8dc52cf6499221bc9d461b4d81f767
   );
 }
 
