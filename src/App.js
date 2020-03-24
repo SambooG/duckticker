@@ -2,12 +2,13 @@ import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
 import SignUpForm from "./components/signup";
-import SignInForm from "./components/signin";
 import Nav from "./components/Nav";
 import WelcomeCard from "./components/WelcomeCard";
 import PortfolioCard from "./components/PortfolioCard";
 import SignInCard from "./components/SignInCard";
 import SignUpCard from "./components/SignUpCard";
+import UserInfoBlock from "./components/userInfoBlock";
+import getUserInfo from "./api/getUserInfo";
 import './App.css';
 import GraphDashboard from './components/graph-dashboard';
 
@@ -21,23 +22,40 @@ class App extends Component {
     super(props);
     this.state = {
       userID: "",
-      userName: "Fakie",
-      portfolio: ["AAP", "AAON", "SNAP", "SQ"]
+      userName: "Not Logged In",
+      portfolio: ["Not Loggged In"]
     }
+    this.processUserInfo = this.processUserInfo.bind(this)
   } 
 
 
 // FUNCTIONS
 // ==========================================================================================  
-  handleOnChange = (event) => { // Handles every time someone types in the input of the below form
-    const { name, value } = event.target; // We get the name and value off of the input that is currently being typed in
 
-    console.log("NAME: ", name, '\n', "VALUE: ", value);
-    this.setState({ [name]: value }) // By using the name property (as long as it matches the same name in state) we only need one function for multiple inputs
+
+  logIn = (username) => {
+    this.setState({userName: username}) 
+    getUserInfo(username, this.processUserInfo)
   }
 
-  logIn = () => {
-    console.log(`${this.state.userName} logged in!`)
+  processUserInfo (error, data){
+    if (!error){
+      console.log(data)
+      this.setPortfolio(data)
+    }
+  }
+
+  setPortfolio = (data) => {
+    this.setState({portfolio: data.portfolio})
+  }
+
+  handleLogOut = () => {
+    console.log("logout")
+    this.setState({
+      userID: "",
+      userName: "Not Logged In",
+      portfolio: ["Not Loggged In"]
+    })
   }
 
 
@@ -47,19 +65,25 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-        {/* <UserInfoBlock username = {this.state.userName}/> */}
+          <UserInfoBlock username = {this.state.userName} userPortfolio = {this.state.portfolio} logout = {this.handleLogOut}/>
           <Switch>
-          <Route path="/" exact component={SignInCard} />
-          <Route path="/signup" component={SignUpCard} />
-          <Fragment>
-          <Nav />
-          <Route path="/home" component={WelcomeCard} />
-          <Route path="/portfolio" component={PortfolioCard} />        
             <Route 
-              exact path = {"/graphdashboard"}
-              render={(props) => <GraphDashboard {...props} userPortfolio = {this.state.portfolio}/> }
-            /> {/* This structure comes from: https://tylermcginnis.com/react-router-pass-props-to-components/    */}
-             </Fragment>
+                exact path = {"/"}
+                render={(props) => <SignInCard {...props} 
+                  username = {this.state.userName} 
+                  login = {this.logIn}
+                  /> }
+              />
+            <Route path="/signup" component={SignUpCard} />
+            <Fragment>
+              <Nav />
+              <Route path="/home" component={WelcomeCard} />
+              <Route path="/portfolio" component={PortfolioCard} />        
+                <Route 
+                  exact path = {"/ducks"}
+                  render={(props) => <GraphDashboard {...props} userPortfolio = {this.state.portfolio}/> }
+                /> {/* This structure comes from: https://tylermcginnis.com/react-router-pass-props-to-components/    */}
+            </Fragment>
           </Switch>
 
         </div>
