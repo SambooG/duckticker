@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch, withRouter } from "react-router-dom";
+import React, { Component, Fragment } from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
-
 import SignUpForm from "./components/signup";
 import Nav from "./components/Nav";
 import WelcomeCard from "./components/WelcomeCard";
@@ -12,6 +11,11 @@ import UserInfoBlock from "./components/userInfoBlock";
 import getUserInfo from "./api/getUserInfo";
 import './App.css';
 import GraphDashboard from './components/graph-dashboard';
+
+{/*Login page is not currently accessible through navigation. 
+Currently it will be loaded based on (lack of)authentication and first time visiting site or manually entering an empty url. 
+Log out button could navigate to this page*/}
+
 
 class App extends Component {
   constructor(props) {
@@ -61,29 +65,25 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Nav />
-          <UserInfoBlock 
-            username = {this.state.userName} 
-            userPortfolio = {this.state.portfolio} 
-            logout = {this.handleLogOut}
-            />
+          <UserInfoBlock username = {this.state.userName} userPortfolio = {this.state.portfolio} logout = {this.handleLogOut}/>
           <Switch>
             <Route 
-              exact path = {"/signin"}
-              render={(props) => <SignInCard {...props} 
-                username = {this.state.userName} 
-                // handleOnChange = {this.handleOnChange} 
-                login = {this.logIn}
-                /> }
-            />
-            <Route exact path = {"/signup"} render={SignUpForm} />
-            <Route path="/home" component={WelcomeCard} />
-            <Route path="/portfolio" component={PortfolioCard} />
-            {/* <Route path="/" exact component={} /> */}
-            <Route 
-              exact path = {"/graphdashboard"}
-              render={(props) => <GraphDashboard {...props} userPortfolio = {this.state.portfolio}/> }
-            /> {/* This structure comes from: https://tylermcginnis.com/react-router-pass-props-to-components/    */}
+                exact path = {"/"}
+                render={(props) => <SignInCard {...props} 
+                  username = {this.state.userName} 
+                  login = {this.logIn}
+                  /> }
+              />
+            <Route path="/signup" component={SignUpCard} />
+            <Fragment>
+              <Nav />
+              <Route path="/home" component={WelcomeCard} />
+              <Route path="/portfolio" component={PortfolioCard} />        
+                <Route 
+                  exact path = {"/ducks"}
+                  render={(props) => <GraphDashboard {...props} userPortfolio = {this.state.portfolio}/> }
+                /> {/* This structure comes from: https://tylermcginnis.com/react-router-pass-props-to-components/    */}
+            </Fragment>
           </Switch>
 
         </div>
@@ -93,8 +93,6 @@ class App extends Component {
 }
 
 export default App;
-
-
 
 
 
