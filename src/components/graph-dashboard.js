@@ -1,9 +1,17 @@
 import React from 'react';
+<<<<<<< HEAD:src/graph-dashboard.js
 import axios from 'axios';
 import LineChart from './components/chart/apiChart';
 import stockApi from './api/stockapi';
 
 // Test data for symbols for stock api
+=======
+import LineChart from './chart/apiChart';
+import stockApi from '../api/stockapi';
+
+// Test data for symbols for stock api
+const testData = []
+>>>>>>> 4c3deb540e99bf96dbec1d788fc34c39440ddf53:src/components/graph-dashboard.js
 // const testData = {
 //   portfolio: [
 //     "AMZN",
@@ -13,6 +21,11 @@ import stockApi from './api/stockapi';
 //     "F"
 //   ]
 // };
+<<<<<<< HEAD:src/graph-dashboard.js
+=======
+
+
+>>>>>>> 4c3deb540e99bf96dbec1d788fc34c39440ddf53:src/components/graph-dashboard.js
 
 // WHAT'S LEFT
 
@@ -43,6 +56,7 @@ import stockApi from './api/stockapi';
  */
 class GraphDashboard extends React.Component {
     state = {
+      portfolio:[ "AMZN", "AA", "A", "GOOGL", "F" ], // We want this to populate from App.js
       labels: [],
       name: "",
       lineData: [],
@@ -50,6 +64,7 @@ class GraphDashboard extends React.Component {
       data: null
     }
 
+<<<<<<< HEAD:src/graph-dashboard.js
     componentDidMount() {
       // This is just to show you how it works
       axios.get(`/api/users/`) // findAll in the userController
@@ -75,6 +90,11 @@ class GraphDashboard extends React.Component {
       // else {
       //   this.setState({ loading: false });
       // }
+=======
+    getPortfolio = () => { // !!!!!!!!!! this doesn't actually work
+    // Goal: is to update the portfolio in state with the props from app.js
+      this.state.userPortfolio = this.props.userPortfolio;
+>>>>>>> 4c3deb540e99bf96dbec1d788fc34c39440ddf53:src/components/graph-dashboard.js
     }
 
     getStockData = (symbol) => {
@@ -113,7 +133,11 @@ class GraphDashboard extends React.Component {
           <div>
             <div>
               {
+<<<<<<< HEAD:src/graph-dashboard.js
                 this.state.userPortfolio.map(stockSymbol => (
+=======
+                this.state.portfolio.map(stockSymbol => (
+>>>>>>> 4c3deb540e99bf96dbec1d788fc34c39440ddf53:src/components/graph-dashboard.js
                   <button onClick = {() => this.getStockData(stockSymbol)} key={stockSymbol}>
                     {stockSymbol}
                   </button>
