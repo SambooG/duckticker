@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from 'react-router-dom';
-function Nav() {
+function Nav(props) {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             {/*<a className="navbar-brand" href="#">Navbar</a>*/}
@@ -20,6 +20,9 @@ function Nav() {
                     <li className="nav-item">
                         <Link to="/portfolio" className="nav-link">Portfolio</Link>
                     </li>
+                   <li>
+                        <Link to="/"><button onClick={props.logout}>Log Out</button></Link>
+                        </li>
                     
                     
                 </ul>

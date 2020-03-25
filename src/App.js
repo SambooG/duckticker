@@ -55,7 +55,7 @@ class App extends Component {
     this.setState({
       userID: "",
       userName: "Not Logged In",
-      portfolio: ["Not Loggged In"]
+      portfolio:["Not logged in"]
     })
   }
 
@@ -74,7 +74,7 @@ class App extends Component {
             <Fragment>
               <Nav />
               <Route path="/home" component={WelcomeCard} />
-              <Route path="/portfolio" component={PortfolioCard} />        
+              <Route path="/portfolio"  render={(props) => <PortfolioCard {...props} userPortfolio = {this.state.portfolio} />}/>        
                 <Route 
                   exact path = {"/ducks"}
                   render={(props) => <GraphDashboard {...props} portfolio = {this.state.portfolio}/> }
