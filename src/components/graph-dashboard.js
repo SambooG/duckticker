@@ -3,6 +3,7 @@ import axios from 'axios';
 import LineChart from '../components/chart/apiChart';
 import stockApi from '../api/stockapi';
 
+
 // WHAT'S LEFT
 
 // { userName: 'Joe', portfolio: ['AARP', 'GOOG'] }
@@ -105,7 +106,9 @@ class GraphDashboard extends React.Component {
           <div>
             <div>
               {
+
                 this.state.userPortfolio.map(stockSymbol => (
+
                   <button onClick = {() => this.getStockData(stockSymbol)} key={stockSymbol}>
                     {stockSymbol}
                   </button>
