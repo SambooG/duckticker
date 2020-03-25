@@ -16,17 +16,17 @@ function PortfolioCard() {
                 <tr>
                     <th scope="row">Up</th>
                     <td>Stock Name 1</td>
-                    <button type="button" class="btn btn-danger">X</button>
+                    <button type="button" className="btn btn-danger">X</button>
                 </tr>
                 <tr>
                     <th scope="row">Down</th>
                     <td>StockName2</td>
-                    <button type="button" class="btn btn-danger">X</button>
+                    <button type="button" className="btn btn-danger">X</button>
                 </tr>
                 <tr>
                     <th scope="row">Down</th>
                     <td>StockName3</td>
-                    <button type="button" class="btn btn-danger">X</button>
+                    <button type="button" className="btn btn-danger">X</button>
                 </tr>
                </tbody> 
 

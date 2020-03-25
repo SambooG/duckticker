@@ -31,7 +31,7 @@ class SignUpForm extends Component {
         <h1>Sign Up Form!</h1>
         <input onChange={this.handleOnChange} name="userName" type="userName" value={this.state.userName} />
         <input onChange={this.handleOnChange} name="password" type="password" value={this.state.password} />
-        <button onClick={this.handleSubmit}>Sign Up!</button>
+        <button onClick={this.handleSubmit}>{this.state.userName + ", "}Sign Up!</button>
       </div>
     )
   }

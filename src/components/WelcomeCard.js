@@ -18,8 +18,8 @@ function WelcomeCard() {
       <br></br>
 We chose to represent how stocks are trending with a fun visual of rubber ducks because... c'mon who doesn't love cute little rubber ducks?
 Also, with this visual it keeps things interesting and are hopes are that it will encourage people to have more of an interest in the stock market overall.</p>
-        <img src="../assets/images/logo2.jpg" class="float-left" alt="" width="304" height="100%" />
-        <img src="../assets/images/logo.jpg" class="float-right" alt="" width="304" height="100%" />
+        <img src="../assets/images/logo2.jpg" className="float-left" alt="" width="304" height="100%" />
+        <img src="../assets/images/logo.jpg" className="float-right" alt="" width="304" height="100%" />
       </div>
     </div>
 

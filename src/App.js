@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
-import SignUpForm from "./components/signup";
+import SignUpForm from "./components/signup"; // Delete this later
 import Nav from "./components/Nav";
 import WelcomeCard from "./components/WelcomeCard";
 import PortfolioCard from "./components/PortfolioCard";
@@ -11,6 +11,7 @@ import UserInfoBlock from "./components/userInfoBlock";
 import getUserInfo from "./api/getUserInfo";
 import './App.css';
 import GraphDashboard from './components/graph-dashboard';
+
 
 {/*Login page is not currently accessible through navigation. 
 Currently it will be loaded based on (lack of)authentication and first time visiting site or manually entering an empty url. 
@@ -66,6 +67,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <UserInfoBlock username = {this.state.userName} userPortfolio = {this.state.portfolio} logout = {this.handleLogOut}/>
+          {/* <SignUpForm  /> */}
           <Switch>
             <Route 
                 exact path = {"/"}
