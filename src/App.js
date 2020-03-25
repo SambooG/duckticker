@@ -67,16 +67,10 @@ class App extends Component {
       <Router>
         <div className="App">
           <UserInfoBlock username = {this.state.userName} userPortfolio = {this.state.portfolio} logout = {this.handleLogOut}/>
-          {/* <SignUpForm  /> */}
+          {/* <SignUpForm login = {this.logIn}/> */}
           <Switch>
-            <Route 
-                exact path = {"/"}
-                render={(props) => <SignInCard {...props} 
-                  username = {this.state.userName} 
-                  login = {this.logIn}
-                  /> }
-              />
-            <Route path="/signup" component={SignUpCard} />
+            <Route exact path = {"/"} render={(props) => <SignInCard {...props} username = {this.state.userName} login = {this.logIn}/> }/>
+            <Route path="/signup" render={(props) => <SignUpCard {...props} login = {this.logIn}/> }/>
             <Fragment>
               <Nav />
               <Route path="/home" component={WelcomeCard} />

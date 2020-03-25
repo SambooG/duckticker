@@ -66,7 +66,7 @@ class SignInCard extends Component {
   handleOnSubmit = () => {
     console.log(`username is ${this.state.usernameValue}`)
     this.props.login(this.state.usernameValue)
-    this.props.history.push("/graphdashboard")
+    this.props.history.push("/ducks")
   }
 
 render() {

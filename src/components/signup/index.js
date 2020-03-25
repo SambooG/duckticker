@@ -19,9 +19,11 @@ class SignUpForm extends Component {
   }
 
   handleSubmit = () => { // Actually submits the form to the backend
-    axios.post('/signup', { userName: this.state.userName, password: this.state.password })
+    axios.post('/api/users/signup', { userName: this.state.userName, password: this.state.password })
       .then(response => console.log("RESPONSE: ", response))
       .catch(error => console.log("ERROR: ", error));
+    // this.props.login(this.state.userName)
+    
   }
 
 
