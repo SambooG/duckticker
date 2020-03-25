@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+// import React, { Component } from 'react';
+// This file is deprecated. It can be deleted later.
 
-function SignInForm (props){
+// function SignInForm (props){
 
   // ==================================================================//
   // This cool little bit of code could one day be used to make 
@@ -23,16 +23,16 @@ function SignInForm (props){
   // }
   // ==================================================================//
 
-    return (
-      <div>
-        <h1>Sign Up Form!</h1>
-        <input onChange={props.handleOnChange} name="userName" type="text" value={props.username} />
-        <input name="password" type="password"  />
-              {/* <input onChange={props} name="password" type="password" value={props.password} /> */}
-        <button onClick={props.login}>Login</button>
-              {/* <button onClick={this.handleLogin}>Login</button> */}
-      </div>
-    )
-}
+//     return (
+//       <div>
+//         <h1>Sign Up Form!</h1>
+//         <input onChange={props.handleOnChange} name="userName" type="text" value={props.username} />
+//         <input name="password" type="password"  />
+//               {/* <input onChange={props} name="password" type="password" value={props.password} /> */}
+//         <button onClick={props.login}>Login</button>
+//               {/* <button onClick={this.handleLogin}>Login</button> */}
+//       </div>
+//     )
+// }
 
-export default SignInForm;
+// export default SignInForm;
