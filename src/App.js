@@ -81,7 +81,7 @@ class App extends Component {
               <Route path="/portfolio" component={PortfolioCard} />        
                 <Route 
                   exact path = {"/ducks"}
-                  render={(props) => <GraphDashboard {...props} userPortfolio = {this.state.portfolio}/> }
+                  render={(props) => <GraphDashboard {...props} portfolio = {this.state.portfolio}/> }
                 /> {/* This structure comes from: https://tylermcginnis.com/react-router-pass-props-to-components/    */}
             </Fragment>
           </Switch>
