@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import LineChart from '../components/chart/apiChart';
+import LineChart from './chart/apiChart';
 import stockApi from '../api/stockapi';
 
 
