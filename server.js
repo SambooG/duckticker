@@ -28,7 +28,10 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/userlist");
 
 
 
+//  "proxy": "http://localhost:3002",
 
+
+// if local work needs to be done, add this back into package.json
 
 // SAM'S BCRYPT EXAMPLE STARTS HERE
 // ------------------------------------------------------------------------------------------------------------------------//

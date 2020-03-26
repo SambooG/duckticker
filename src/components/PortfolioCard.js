@@ -2,7 +2,9 @@ import React from "react";
 // import { Button, Form, FormGroup, Label, Input }
 //   from 'reactstrap';
 // import axios from "axios";  
+// / "proxy": "http://localhost:3002",
 
+// if local work needs to be done, add this back into package.json
 
 
 function PortfolioCard(props) {
