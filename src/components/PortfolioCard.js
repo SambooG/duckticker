@@ -2,6 +2,9 @@ import React from "react";
 import { Button, Form, FormGroup, Label, Input }
   from 'reactstrap';
 import axios from "axios";  
+import '../../src/App.css'
+
+
 // / "proxy": "http://localhost:3002",
 
 // if local work needs to be done, add this back into package.json
@@ -23,7 +26,8 @@ class PortfolioCard extends React.Component {
       removeStock = (index) => {
           const newPortfolio = [...this.props.user.portfolio];
           newPortfolio.splice(index, 1)
-      axios.put(`http://localhost:3002/api/users/${this.props.user.userID}`,{ portfolio: newPortfolio })
+      axios.put(`/api/users/${this.props.user.userID}`,{ portfolio: newPortfolio })
+    //   axios.put(`http://localhost:3002/api/users/${this.props.user.userID}`,{ portfolio: newPortfolio })
       .then(res => this.props.setPortfolio(res.data))
       .catch(err => console.log(err))
       
@@ -33,7 +37,8 @@ class PortfolioCard extends React.Component {
           this.setState({
               newStock: ''
           })
-        axios.put(`http://localhost:3002/api/users/${this.props.user.userID}`,{ portfolio: [...this.props.user.portfolio, this.state.newStock]})
+          axios.put(`/api/users/${this.props.user.userID}`,{ portfolio: [...this.props.user.portfolio, this.state.newStock]})
+        // axios.put(`http://localhost:3002/api/users/${this.props.user.userID}`,{ portfolio: [...this.props.user.portfolio, this.state.newStock]})
         .then(res => this.props.setPortfolio(res.data))
         .catch(err => console.log(err))
         
@@ -61,14 +66,12 @@ render(){
       </table>
           
       <div className ="wrapper">
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">{/*<img src="../assets/images/logo2.jpg" width="30px"/>*/}</span>
-          </div>
+        <div className="">
+          
             <Form className="new-stock-form">
                 <FormGroup>
                     <Label>Stock Name</Label>
-                    <Input className="stock-input" 
+                    <Input className="input-group mb-3" 
                         name="newStock" 
                         type="text" 
                         placeholder="Enter a stock symbol" 
