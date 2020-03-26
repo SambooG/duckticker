@@ -59,6 +59,13 @@ class App extends Component {
     })
   }
 
+  addStockToPortfolio = () => {
+    // fires on submit
+    console.log("FIRE!");
+    // pushes the value to state
+    // updates the backend with the state
+    
+  }
 
 // RENDER
 // ==========================================================================================
@@ -77,8 +84,8 @@ class App extends Component {
               <Route path="/portfolio"  render={(props) => <PortfolioCard {...props} userPortfolio = {this.state.portfolio} />}/>        
                 <Route 
                   exact path = {"/ducks"}
-                  render={(props) => <GraphDashboard {...props} portfolio = {this.state.portfolio}/> }
-                /> {/* This structure comes from: https://tylermcginnis.com/react-router-pass-props-to-components/    */}
+                  render={(props) => <GraphDashboard {...props} portfolio = {this.state.portfolio} addToPortfolio = {this.addStockToPortfolio}/> }
+                /> 
             </Fragment>
           </Switch>
 
@@ -91,7 +98,7 @@ class App extends Component {
 export default App;
 
 
-
+// This structure comes from: https://tylermcginnis.com/react-router-pass-props-to-components/
 
 // Still need to implement a back button, and a logout button into the nav menu and add it to the routing */ }
 
