@@ -42,7 +42,11 @@ class App extends Component {
   processUserInfo (error, data){
     if (!error){
       console.log(data)
-      this.setPortfolio(data)
+      
+      this.setState({
+        portfolio:data.portfolio,
+        userID: data._id
+      })
     }
   }
 
@@ -59,13 +63,7 @@ class App extends Component {
     })
   }
 
-  addStockToPortfolio = () => {
-    // fires on submit
-    console.log("FIRE!");
-    // pushes the value to state
-    // updates the backend with the state
-    
-  }
+  
 
 // RENDER
 // ==========================================================================================
@@ -80,7 +78,7 @@ class App extends Component {
             <Fragment>
               <Nav />
               <Route path="/home" component={WelcomeCard} />
-              <Route path="/portfolio"  render={(props) => <PortfolioCard {...props} userPortfolio = {this.state.portfolio} />}/>        
+              <Route path="/portfolio"  render={(props) => <PortfolioCard {...props} user = {this.state} setPortfolio = {this.setPortfolio} />}/>        
                 <Route 
                   exact path = {"/ducks"}
                   render={(props) => <GraphDashboard {...props} portfolio = {this.state.portfolio} addToPortfolio = {this.addStockToPortfolio}/> }

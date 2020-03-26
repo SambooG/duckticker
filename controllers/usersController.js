@@ -28,8 +28,8 @@ module.exports = {
   },
   update: function(req, res) {
     db.User
-      // .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .findOneAndUpdate({ "userName": req.params.userName }, req.body)
+      .findByIdAndUpdate(req.params.id, req.body, {new:true})
+      // .findOneAndUpdate({ "userName": req.params.userName }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
