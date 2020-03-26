@@ -36,5 +36,5 @@ Once signed in users can view their stocks on their portfolio page where they ca
 - Run npm start
 - Go to localhost:3000 in your web browser
 
-Live App hosted here : "heroku"
+Live App hosted here : https://duck-ticker.herokuapp.com/
 
