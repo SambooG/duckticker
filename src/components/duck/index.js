@@ -1,14 +1,13 @@
-import React from "react";
-import "./style.css";
-// KYLE: I made this because I thought we'd need it, but maybe we don't?
-// I don't know?
+// import React from "react";
+// import "./style.css";
+// // THIS FILE CAN BE DELETED
 
-const Duck = (props) => {
-  return(
-  <div className="duck">
-      <p>APPL</p>
-  </div>
-  )
-}
+// const Duck = (props) => {
+//   return(
+//   <div className="duck">
+//       <p>APPL</p>
+//   </div>
+//   )
+// }
 
-export default Duck;
+// export default Duck;

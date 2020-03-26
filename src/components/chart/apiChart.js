@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Chart from "chart.js";
-import duck from './assets/duck.jpg';
+import duck from './assets/duck.png';
+import style from './style.css'
 
 
 const chartPoint = new Image(45,45)
@@ -40,8 +41,17 @@ export default class LineGraph extends Component {
                     label: this.props.name,
                     data: this.props.data,
                     backgroundColor: [
-                        'rgba(44, 196, 246, 1)',
-                        'rgba(8, 153, 201, 1)',
+                      'rgba(44, 196, 246, .4)',
+                      'rgba(8, 153, 201, .4)'
+                  ],
+                    borderColor: [
+                      'rgb(0, 153, 255, 1)',
+                      'rgb(0, 153, 255, 1)',
+                      'rgb(0, 153, 255, 1)',
+                      'rgb(0, 153, 255, 1)',
+                      'rgb(0, 153, 255, 1)',
+                      'rgb(0, 153, 255, 1)'
+
                     ],
                     borderColor: 'rgba(8, 153, 201, 1)',
                     borderWidth: 1,
