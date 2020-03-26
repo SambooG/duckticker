@@ -10,7 +10,7 @@ Users can login to view how their stocks  are trending withinn the last 10days. 
 Once signed in users can view their stocks on their portfolio page where they can also delete and add new stocks.
 
 
-<!--Insert screenshots here<-->
+<!--Insert screenshots here-->
 
 ### NPM Packages
 - Axios
