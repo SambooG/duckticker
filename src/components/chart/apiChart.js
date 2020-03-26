@@ -40,21 +40,9 @@ export default class LineGraph extends Component {
                 datasets: [{
                     label: this.props.name,
                     data: this.props.data,
-                    // backgroundColor: [
-                    //     'rgba(255, 99, 132, 0.2)',
-                    //     'rgba(54, 162, 235, 0.2)',
-                    //     'rgba(255, 206, 86, 0.2)',
-                    //     'rgba(75, 192, 192, 0.2)',
-                    //     'rgba(153, 102, 255, 0.2)',
-                    //     'rgba(255, 159, 64, 0.2)'
-                    // ],
                     backgroundColor: [
-                      'rgba(0, 153, 255, .2)',
-                      'rgba(0, 153, 255, .2)',
-                      'rgba(0, 153, 255, .2)',
-                      'rgba(0, 153, 255, .2)',
-                      'rgba(0, 153, 255, .2)',
-                      'rgba(0, 153, 255, .2)'
+                      'rgba(44, 196, 246, .4)',
+                      'rgba(8, 153, 201, .4)'
                   ],
                     borderColor: [
                       'rgb(0, 153, 255, 1)',
@@ -63,7 +51,9 @@ export default class LineGraph extends Component {
                       'rgb(0, 153, 255, 1)',
                       'rgb(0, 153, 255, 1)',
                       'rgb(0, 153, 255, 1)'
+
                     ],
+                    borderColor: 'rgba(8, 153, 201, 1)',
                     borderWidth: 1,
                     pointStyle: chartPoint,
                     height: 10,
