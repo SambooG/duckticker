@@ -44,15 +44,7 @@ export default class LineGraph extends Component {
                       'rgba(44, 196, 246, .4)',
                       'rgba(8, 153, 201, .4)'
                   ],
-                    borderColor: [
-                      'rgb(0, 153, 255, 1)',
-                      'rgb(0, 153, 255, 1)',
-                      'rgb(0, 153, 255, 1)',
-                      'rgb(0, 153, 255, 1)',
-                      'rgb(0, 153, 255, 1)',
-                      'rgb(0, 153, 255, 1)'
-
-                    ],
+                    
                     borderColor: 'rgba(8, 153, 201, 1)',
                     borderWidth: 1,
                     pointStyle: chartPoint,
