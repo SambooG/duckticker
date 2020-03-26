@@ -5,7 +5,6 @@ require('dotenv').config();
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
-const PORT = process.env.PORT || 3002;
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -39,20 +38,21 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/userlist");
 
 // FAKE MONGOOSE/MONGODB USERS TABLE. NO NEED TO LOOK INTO OR UNDERSTAND
 // const Users = {
-//   data: [],
-//   create: function(newUser) {
-//     this.data.push(newUser);
-//   },
-//   findAll: function() {
-//     return this.data;
-//   },
-//   findOne: function({ email }) {
-//     console.log("DATA: ", this.data, email);
-//     return this.data.find(savedUser => savedUser.email === email);
-//   }
-// };
-
-
-
-// Start the API server
-app.listen(PORT, () => console.log(`API Server now listening on PORT ${PORT}!`))
+  //   data: [],
+  //   create: function(newUser) {
+    //     this.data.push(newUser);
+    //   },
+    //   findAll: function() {
+      //     return this.data;
+      //   },
+      //   findOne: function({ email }) {
+        //     console.log("DATA: ", this.data, email);
+        //     return this.data.find(savedUser => savedUser.email === email);
+        //   }
+        // };
+        
+        
+        const PORT = process.env.PORT || 3002;
+        
+        // Start the API server
+        app.listen(PORT, () => console.log(`API Server now listening on PORT ${PORT}!`))
