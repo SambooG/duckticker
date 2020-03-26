@@ -24,7 +24,7 @@ class App extends Component {
     this.state = {
       userID: "",
       userName: "Not Logged In",
-      portfolio: ["Not Loggged In"]
+      portfolio: ["Not Logged In"]
     }
     this.processUserInfo = this.processUserInfo.bind(this)
   } 

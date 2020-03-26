@@ -92,8 +92,9 @@ class GraphDashboard extends React.Component {
                     {
                     this.props.portfolio.map(stockSymbol => (
                         <button onClick = {() => this.getStockData(stockSymbol)} key={stockSymbol}>
-                    {stockSymbol}
-                </button>))
+                        {stockSymbol}
+                        </button>))
+                        
                     }
                 </div>
                 
@@ -106,7 +107,7 @@ class GraphDashboard extends React.Component {
                     </button>
                 ))}
                 </div>
-
+                    <h1>{this.state.name}</h1>
                 <LineChart
                 // this is where the graph renders on screen
                 labels = {this.state.labels}
