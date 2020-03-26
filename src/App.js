@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
-import SignUpForm from "./components/signup";
+import SignUpForm from "./components/signup"; // Delete this later
 import Nav from "./components/Nav";
 import WelcomeCard from "./components/WelcomeCard";
 import PortfolioCard from "./components/PortfolioCard";
@@ -11,6 +11,7 @@ import UserInfoBlock from "./components/userInfoBlock";
 import getUserInfo from "./api/getUserInfo";
 import './App.css';
 import GraphDashboard from './components/graph-dashboard';
+
 
 {/*Login page is not currently accessible through navigation. 
 Currently it will be loaded based on (lack of)authentication and first time visiting site or manually entering an empty url. 
@@ -66,22 +67,17 @@ class App extends Component {
       <Router>
         <div className="App">
           <UserInfoBlock username = {this.state.userName} userPortfolio = {this.state.portfolio} logout = {this.handleLogOut}/>
+          {/* <SignUpForm login = {this.logIn}/> */}
           <Switch>
-            <Route 
-                exact path = {"/"}
-                render={(props) => <SignInCard {...props} 
-                  username = {this.state.userName} 
-                  login = {this.logIn}
-                  /> }
-              />
-            <Route path="/signup" component={SignUpCard} />
+            <Route exact path = {"/"} render={(props) => <SignInCard {...props} username = {this.state.userName} login = {this.logIn}/> }/>
+            <Route path="/signup" render={(props) => <SignUpCard {...props} login = {this.logIn}/> }/>
             <Fragment>
               <Nav />
               <Route path="/home" component={WelcomeCard} />
               <Route path="/portfolio"  render={(props) => <PortfolioCard {...props} userPortfolio = {this.state.portfolio} />}/>        
                 <Route 
                   exact path = {"/ducks"}
-                  render={(props) => <GraphDashboard {...props} userPortfolio = {this.state.portfolio}/> }
+                  render={(props) => <GraphDashboard {...props} portfolio = {this.state.portfolio}/> }
                 /> {/* This structure comes from: https://tylermcginnis.com/react-router-pass-props-to-components/    */}
             </Fragment>
           </Switch>

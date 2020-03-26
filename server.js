@@ -53,15 +53,6 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/userlist");
 // };
 
 
-// TODO:
-// ------------------------------------------------------
-// Make sure that the "Users" conencts to the right model
-// Update the /signup post to only have needed fields (remove id)
-// Make sure the fields match (useraName, email)
-// Move API routes to the Routes folder
-
-
-
 
 // Start the API server
 app.listen(PORT, () => console.log(`API Server now listening on PORT ${PORT}!`))

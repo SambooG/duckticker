@@ -19,9 +19,11 @@ class SignUpForm extends Component {
   }
 
   handleSubmit = () => { // Actually submits the form to the backend
-    axios.post('/signup', { userName: this.state.userName, password: this.state.password })
+    axios.post('/api/users/signup', { userName: this.state.userName, password: this.state.password })
       .then(response => console.log("RESPONSE: ", response))
       .catch(error => console.log("ERROR: ", error));
+    // this.props.login(this.state.userName)
+    
   }
 
 
@@ -31,7 +33,7 @@ class SignUpForm extends Component {
         <h1>Sign Up Form!</h1>
         <input onChange={this.handleOnChange} name="userName" type="userName" value={this.state.userName} />
         <input onChange={this.handleOnChange} name="password" type="password" value={this.state.password} />
-        <button onClick={this.handleSubmit}>Sign Up!</button>
+        <button onClick={this.handleSubmit}>{this.state.userName + ", "}Sign Up!</button>
       </div>
     )
   }

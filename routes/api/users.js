@@ -48,7 +48,8 @@ router.route("/signup")
 router
   .route("/login/:userName")
   .get(usersController.findUserForLogin)
-
+  .put(usersController.update)
+  .delete(usersController.remove);
 
 // Specific User:
 // NOTE: This one has to be last in the list because it will interpret anything after "users/" as a user name and try to find it.
