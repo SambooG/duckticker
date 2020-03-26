@@ -3,9 +3,18 @@ import axios from 'axios';
 import LineChart from './chart/apiChart';
 import stockApi from '../api/stockapi';
 
+// Test data for symbols for stock api
+// const testData = {
+//   portfolio: [
+//     "AMZN",
+//     "AA",
+//     "A",
+//     "GOOGL",
+//     "F"
+//   ]
+// };
 
 class GraphDashboard extends React.Component {
-<<<<<<< HEAD
     constructor(props){
     super(props);
     this.state = {
@@ -29,30 +38,6 @@ class GraphDashboard extends React.Component {
     //     })
     //   })
     //   .catch(err => console.log("ERROR: ", err))
-=======
-    state = {
-      portfolio:[ "AMZN", "AA", "A", "GOOGL", "F" ], // We want this to populate from App.js
-      labels: [],
-      name: "",
-      lineData: [],
-      userPortfolio: this.props.portfolio, // OPTION 3: this.props.user.portfolio || []
-      data: null
-    }
-
-    componentDidMount() {
-      
-
-      // OPTION ONE
-      // axios.get(`/api/users/`) // findAll in the userController
-      // .then(response => {
-      //   // 0 is the index for the array
-      //   console.log(response.data[0]);
-      //   this.setState({ 
-      //     userPortfolio: response.data[0].portfolio,
-      //   })
-      // })
-      // .catch(err => console.log("ERROR: ", err))
->>>>>>> ef5df3fb4a2b22833222a827acc2032edde1b13a
 
 
       // OPTION TWO BELOW
@@ -105,7 +90,8 @@ class GraphDashboard extends React.Component {
           <div>
                 <div>
                     {
-                    this.props.userPortfolio.map(stockSymbol => (<button onClick = {() => this.getStockData(stockSymbol)} key={stockSymbol}>
+                    this.props.portfolio.map(stockSymbol => (
+                        <button onClick = {() => this.getStockData(stockSymbol)} key={stockSymbol}>
                     {stockSymbol}
                 </button>))
                     }
