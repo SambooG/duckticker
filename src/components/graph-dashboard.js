@@ -58,14 +58,14 @@ class GraphDashboard extends React.Component {
       // Using stockApi function from stockApi.js to get data for symbol that was clicked on
       stockApi(symbol, (stockData) => {
         console.log(stockData);
-        const dateLabels = Object.keys(stockData.history); // Get the date keys from stockData
+        const dateLabels = Object.keys(stockData["Time Series (Daily)"]); // Get the date keys from stockData
 
         // All the necessary initial info from the stockData is stored in state and passed to the lineChart
         this.setState({
           data: stockData,
-          name: stockData.name,
+          name: stockData["Meta Data"]["2. Symbol"],
           labels: dateLabels,
-          lineData: dateLabels.map(datekey => stockData.history[datekey].close) // use date keys to get close data for each date
+          lineData: dateLabels.map(datekey => stockData["Time Series (Daily)"][datekey]["4. close"]) // use date keys to get close data for each date
         })
       });
     };
@@ -75,16 +75,16 @@ class GraphDashboard extends React.Component {
     getDataType = (dataType) => {
       if (this.state.data) {
         const stockData = this.state.data;
-        const dateLabels = Object.keys(stockData.history);
+        const dateLabels = Object.keys(stockData["Time Series (Daily)"]);
         this.setState({
-          lineData: dateLabels.map(datekey => stockData.history[datekey][dataType])
+          lineData: dateLabels.map(datekey => stockData["Time Series (Daily)"][datekey][dataType])
         })
       }
     };
 
 
     render() {
-        const dataKeys = ["open", "close", "high", "low", "volume"];
+        const dataKeys = ["1. open", "2. high", "3. low", "4. close", "6. volume"];
         // const symbolButtons = [""]
         return (
           <div>
@@ -92,9 +92,8 @@ class GraphDashboard extends React.Component {
                     {
                     this.props.portfolio.map(stockSymbol => (
                         <button onClick = {() => this.getStockData(stockSymbol)} key={stockSymbol}>
-                        {stockSymbol}
-                        </button>))
-                        
+                    {stockSymbol}
+                </button>))
                     }
                 </div>
                 
@@ -107,7 +106,7 @@ class GraphDashboard extends React.Component {
                     </button>
                 ))}
                 </div>
-                    <h1>{this.state.name}</h1>
+
                 <LineChart
                 // this is where the graph renders on screen
                 labels = {this.state.labels}
